@@ -16,12 +16,14 @@ public class RedisConfig
   public static final String CHANNEL_PREFIX = "orekit::operation::";
 
   @Bean(name="jedisConnectionFactory")
-  JedisConnectionFactory jedisConnectionFactory() {
+  JedisConnectionFactory jedisConnectionFactory() 
+  {
     return new JedisConnectionFactory();
   }
 
   @Bean
-  RedisTemplate< String, Object > redisTemplate() {
+  RedisTemplate< String, Object > redisTemplate() 
+  {
     final RedisTemplate< String, Object > template =  new RedisTemplate< String, Object >();
     template.setConnectionFactory( jedisConnectionFactory() );
     template.setKeySerializer( new StringRedisSerializer() );
@@ -37,7 +39,8 @@ public class RedisConfig
   //    }
 
   @Bean(name="redisContainer")
-  RedisMessageListenerContainer redisContainer() {
+  RedisMessageListenerContainer redisContainer() 
+  {
     System.out.println("==========");
     System.out.println("seting up listener container");
     System.out.println("==========");
