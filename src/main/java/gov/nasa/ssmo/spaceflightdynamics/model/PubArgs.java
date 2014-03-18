@@ -10,7 +10,5 @@ public class PubArgs
 
 	public void setOperation(String operation) {
 		this.operation = operation;
-	}
-	
-	
+	}	
 }
