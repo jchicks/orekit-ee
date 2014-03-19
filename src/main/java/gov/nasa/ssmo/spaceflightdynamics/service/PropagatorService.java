@@ -45,48 +45,48 @@ public class PropagatorService
   public void initialize() 
   {
     redisContainer.addMessageListener( 
-        new MessageListener() {
-          @Override
-          public void onMessage(Message message, byte[] pattern) {
-            System.out.println( 
-                "Message received: " + message.toString() + " "+
-                    "Patttern: " + new String(pattern));
+      new MessageListener() {
+        @Override
+        public void onMessage(Message message, byte[] pattern) {
+          System.out.println( 
+            "Message received: " + message.toString() + " "+
+               "Patttern: " + new String(pattern));
 
-            System.out.println("channel " + 
-                new String(message.getChannel()));
+          System.out.println("channel " + 
+            new String(message.getChannel()));
 
-
-//            try {
-//              propagate(null, null, null, null);
-//            } catch (OrekitException e) {
-//              // TODO Auto-generated catch block
-//              e.printStackTrace();
-//            }
-          }
-        }, orekitTopic);
+//
+//          try {
+//            propagate(null, null, null, null);
+//          } catch (OrekitException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//          }
+        }
+      }, orekitTopic);
   }	
 
   public FinalState propagate(DateTime t0,
-      DateTime tf,
-      ArrayList<Double> r0,
-      ArrayList<Double> v0) 
-          throws OrekitException
+                              DateTime tf,
+                              ArrayList<Double> r0,
+                              ArrayList<Double> v0) 
+  throws OrekitException
   {
     AbsoluteDate epoch = AbsoluteDate.J2000_EPOCH;
 
     epoch = 
-        new AbsoluteDate(t0.toDate(), 
-            TimeScalesFactory.getUTC());
+      new AbsoluteDate(t0.toDate(), 
+        TimeScalesFactory.getUTC());
 
     Vector3D v3r = 
-        new Vector3D(r0.get(0), 
-            r0.get(1), 
-            r0.get(2));
+      new Vector3D(r0.get(0), 
+                   r0.get(1), 
+                   r0.get(2));
 
     Vector3D v3v = 
-        new Vector3D(v0.get(0), 
-            v0.get(1), 
-            v0.get(2));
+      new Vector3D(v0.get(0), 
+                   v0.get(1), 
+                   v0.get(2));
 
     /*
      * We're finally ready to start the Orekit stuff.  First create an 
@@ -94,31 +94,30 @@ public class PropagatorService
      * integrator.
      */
     NumericalPropagator numericalPropagator = 
-        new NumericalPropagator(
-            new ClassicalRungeKuttaIntegrator(stepSize));
+      new NumericalPropagator(
+         new ClassicalRungeKuttaIntegrator(stepSize));
 
     Orbit orbit = 
-        new CartesianOrbit(
-            new PVCoordinates(v3r,v3v), 
-            FramesFactory.getEME2000(), 
-            epoch, 
-            CelestialBodyFactory.getEarth().getGM());
+        new CartesianOrbit(new PVCoordinates(v3r,v3v), 
+                           FramesFactory.getEME2000(), 
+                           epoch, 
+                           CelestialBodyFactory.getEarth().getGM());
 
     SpacecraftState state = new SpacecraftState(orbit);
 
     numericalPropagator.setInitialState(state);
 
     SpacecraftState finalSpacecraftState = 
-        numericalPropagator.propagate(
-            new AbsoluteDate(tf.toDate(), 
-                TimeScalesFactory.getUTC()));
+      numericalPropagator.propagate(
+        new AbsoluteDate(tf.toDate(),
+                         TimeScalesFactory.getUTC()));
 
     FinalState finalState = 
         new FinalState(
             finalSpacecraftState.getPVCoordinates()
-            .getPosition(), 
+                                .getPosition(), 
             finalSpacecraftState.getPVCoordinates()
-            .getVelocity());
+                                .getVelocity());
 
     return finalState;
   }

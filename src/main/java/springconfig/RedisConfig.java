@@ -32,11 +32,11 @@ public class RedisConfig
     return template;
   }
 
-  //    @Bean
-  //    MessageListenerAdapter messageListener() {
-  //        return new MessageListenerAdapter( 
-  //        	new RedisMessageListener() );
-  //    }
+//  @Bean
+//  MessageListenerAdapter messageListener() {
+//    return new MessageListenerAdapter( 
+//        new RedisMessageListener() );
+//  }
 
   @Bean(name="redisContainer")
   RedisMessageListenerContainer redisContainer() 
@@ -53,10 +53,10 @@ public class RedisConfig
     return container;
   }
 
-  //    @Bean
-  //    IRedisPublisher redisPublisher() {
-  //        return new RedisPublisherImpl( redisTemplate(), topic() );
-  //    }
+//  @Bean
+//  IRedisPublisher redisPublisher() {
+//    return new RedisPublisherImpl( redisTemplate(), topic() );
+//  }
 
   @Bean(name="orekitTopic")
   PatternTopic orekitTopic() 

@@ -9,14 +9,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages="gov.nasa.ssmo.spaceflightdynamics")
-public class WebConfig {
-
+public class WebConfig 
+{
   @Bean
-  public InternalResourceViewResolver viewResolver() {
+  public InternalResourceViewResolver viewResolver() 
+  {
     InternalResourceViewResolver resolver = new InternalResourceViewResolver();
     resolver.setPrefix("/WEB-INF/view/");
     resolver.setSuffix(".jsp");
     return resolver;
   }
-
 }

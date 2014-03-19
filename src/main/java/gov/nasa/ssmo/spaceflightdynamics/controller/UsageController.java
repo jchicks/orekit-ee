@@ -15,8 +15,9 @@ public class UsageController
   @RequestMapping("usage")
   public String loadHomePage(Model model) 
   {
-    model.addAttribute("name", "CodeTutrrrr");
+    model.addAttribute("name", "usage controller");
     model.addAttribute("UTCTAI_PATH", UTCTAI_PATH);
+    
     return "usage";
   }
 }
