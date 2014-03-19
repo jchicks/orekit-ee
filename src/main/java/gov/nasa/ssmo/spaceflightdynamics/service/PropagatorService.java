@@ -56,12 +56,12 @@ public class PropagatorService
                 new String(message.getChannel()));
 
 
-            //					try {
-            //						propagate(null, null, null, null);
-            //					} catch (OrekitException e) {
-            //						// TODO Auto-generated catch block
-            //						e.printStackTrace();
-            //					}
+//            try {
+//              propagate(null, null, null, null);
+//            } catch (OrekitException e) {
+//              // TODO Auto-generated catch block
+//              e.printStackTrace();
+//            }
           }
         }, orekitTopic);
   }	
