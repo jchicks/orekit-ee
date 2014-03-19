@@ -58,12 +58,10 @@ public class PropagatorController
   @ExceptionHandler(Exception.class)
   public ModelAndView onError(Exception exception) 
   {
-    System.out.println("exception!!!!!!!!");
     ModelAndView mav = new ModelAndView("oh-snap");
     
     mav.addObject("exception", exception);
     
     return mav;
   }
-
 }
