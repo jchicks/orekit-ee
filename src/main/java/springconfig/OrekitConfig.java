@@ -12,7 +12,7 @@ public class OrekitConfig
   @Bean(name="UTCTAI_PATH")
   public String getUTCTAI_PATH() 
   {
-    return "/home/charlie/workspace/orekit-ee/SFDassS/data";
+    return "/home/charlie/test-repos/orekit-ee/SFDassS";
   }
 
   @PostConstruct

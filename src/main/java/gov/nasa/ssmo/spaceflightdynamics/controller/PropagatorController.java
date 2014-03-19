@@ -13,8 +13,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import springconfig.OrekitConfig;
 
@@ -52,4 +54,16 @@ public class PropagatorController
 
     return "propagator";
   }
+  
+  @ExceptionHandler(Exception.class)
+  public ModelAndView onError(Exception exception) 
+  {
+    System.out.println("exception!!!!!!!!");
+    ModelAndView mav = new ModelAndView("oh-snap");
+    
+    mav.addObject("exception", exception);
+    
+    return mav;
+  }
+
 }
