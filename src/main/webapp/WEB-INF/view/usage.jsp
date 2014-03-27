@@ -42,9 +42,23 @@ Usage:
   
   
 <a
-			href="http://localhost:8080/orekit-ee/propagate?t0=2010-05-29T12:00:00.000Z&tf=2010-05-28T13:00:00.000Z&r0=3198022.67,2901879.73,5142928.95&v0=-6129.640631,4489.647187,1284.511245"
+			href="http://localhost:3500/orekit-ee/propagate?t0=2010-05-29T12:00:00.000Z&tf=2010-05-28T13:00:00.000Z&r0=3198022.67,2901879.73,5142928.95&v0=-6129.640631,4489.647187,1284.511245"
 			target="orekit_eg_5">
 working example
+</a>
+
+<br><br>
+<a
+      href="http://localhost:3500/orekit-ee/json/propagate?t0=2010-05-29T12:00:00.000Z&tf=2010-05-28T13:00:00.000Z&r0=3198022.67,2901879.73,5142928.95&v0=-6129.640631,4489.647187,1284.511245"
+      target="orekit_eg_5">
+json example
+</a>
+
+<br><br>
+<a
+      href="http://localhost:3500/orekit-ee/rest/propagate?t0=2010-05-29T12:00:00.000Z&tf=2010-05-28T13:00:00.000Z&r0=3198022.67,2901879.73,5142928.95&v0=-6129.640631,4489.647187,1284.511245"
+      target="orekit_eg_5">
+rest example
 </a>
 </pre>
 </body>
