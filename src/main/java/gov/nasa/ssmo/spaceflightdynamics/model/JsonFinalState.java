@@ -1,13 +1,14 @@
 package gov.nasa.ssmo.spaceflightdynamics.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.joda.time.DateTime;
 
 public class JsonFinalState 
 {
-  DateTime t0;
-  DateTime tf;
+  Date t0;
+  Date tf;
   ArrayList<Double> r0;
   ArrayList<Double> v0;
   
@@ -16,22 +17,10 @@ public class JsonFinalState
   public JsonFinalState(DateTime t0, DateTime tf, ArrayList<Double> r0,
       ArrayList<Double> v0) {
     super();
-    this.t0 = t0;
-    this.tf = tf;
+    this.t0 = t0.toDate();
+    this.tf = tf.toDate();
     this.r0 = r0;
     this.v0 = v0;
-  }
-  public DateTime getT0() {
-    return t0;
-  }
-  public void setT0(DateTime t0) {
-    this.t0 = t0;
-  }
-  public DateTime getTf() {
-    return tf;
-  }
-  public void setTf(DateTime tf) {
-    this.tf = tf;
   }
   public ArrayList<Double> getR0() {
     return r0;
@@ -44,6 +33,18 @@ public class JsonFinalState
   }
   public void setV0(ArrayList<Double> v0) {
     this.v0 = v0;
+  }
+  public Date getT0() {
+    return t0;
+  }
+  public void setT0(Date t0) {
+    this.t0 = t0;
+  }
+  public Date getTf() {
+    return tf;
+  }
+  public void setTf(Date tf) {
+    this.tf = tf;
   }
   
   

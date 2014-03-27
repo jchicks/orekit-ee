@@ -30,11 +30,11 @@ public class RestPropagatorController
       @RequestParam(value="tf") @DateTimeFormat(iso=ISO.DATE_TIME) DateTime tf,     
       @RequestParam(value="r0", defaultValue="") ArrayList<Double> r0,
       @RequestParam(value="v0", defaultValue="") ArrayList<Double> v0)
-    throws OrekitException
-    {
-      JsonFinalState finalState = 
-          new JsonFinalState(t0, tf, r0, v0);
-      
-      return finalState;
-    } 
+  throws OrekitException
+  {
+    JsonFinalState finalState = 
+        new JsonFinalState(t0, tf, r0, v0);
+    
+    return finalState;
+  }  
 }
